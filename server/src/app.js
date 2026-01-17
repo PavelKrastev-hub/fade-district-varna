@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 
-import routes from './routes.js';
+import authRoutes from './routes/authRoute.js';
 
 const app = express();
 
@@ -17,6 +17,6 @@ try {
     console.error('Cannot connetct to DB', error.message);
 }
 
-app.use(routes);
+app.use('/auth', authRoutes);
 
 app.listen(3030, () => console.log('Server is listening on http://localhost:3030...'));
