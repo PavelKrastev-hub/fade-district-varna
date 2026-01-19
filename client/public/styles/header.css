@@ -1,78 +1,32 @@
-/* header.css */
 .header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: #111;
-    /* тъмен фон */
-    color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    font-family: 'Arial', sans-serif;
+    padding: 6px 18px;
+    background-image: url('../images/homePage.png');
+    justify-content: space-between;
+    gap: 20px;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    width: 130px;
+    flex-shrink: 0;
 }
 
-.logo .scissors {
-    color: #ff7f50;
-    /* акцентен цвят */
-}
-
-.nav ul {
-    display: flex;
+.header .navigation {
     list-style: none;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
+    display: inline-flex;
+    justify-content: right;
+    gap: 10px;
 }
 
-.nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
+.buttons {
+    display: inline-flex;
+    margin-left: 1em;
 }
 
-.nav ul li a:hover {
-    color: #ff7f50;
-    /* акцентен hover цвят */
-}
-
-.login-btn {
-    background-color: #ff7f50;
-    border: 1px solid white;
-    padding: 0.5rem 1.25rem;
-    border-radius: 0.5rem;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.login-btn:hover {
-    background-color: #040100;
-}
-
-.register-btn {
-    background-color: #ff7f50;
-    border: 1px solid white;
-    padding: 0.5rem 1.25rem;
-    border-radius: 0.5rem;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.register-btn:hover {
-    background-color: #040100;
+.btn {
+    display: inline-flex;
+    margin: 5px;
+    padding: 0.5em;
+    justify-content: right;
 }
