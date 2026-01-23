@@ -1,0 +1,58 @@
+.footer {
+    background-image: url(../images/downBackgorund.png);
+    border-top: 1px solid rgb(49, 49, 49);
+}
+
+.main-div {
+    display: flex;
+    color: white;
+    justify-content: space-around;
+}
+
+.main-info {
+    width: 30%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.main-info h3 {
+    font-size: 24px;
+}
+
+.main-info p {
+    font-size: 14px;
+}
+
+.working-time {
+    width: 30%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.social-media {
+    width: 30%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.social-media .images {
+    display: flex;
+    gap: 10px;
+    padding-top: 20px;
+}
+
+.copy-right {
+    display: flex;
+    color: grey;
+    justify-content: center;
+    border-top: 1px solid rgb(49, 49, 49);
+}
