@@ -1,6 +1,7 @@
 .footer {
     background-image: url(../images/downBackgorund.png);
     border-top: 1px solid rgb(49, 49, 49);
+    font-family: 'Koh Santepheap', serif;
 }
 
 .main-div {
@@ -11,7 +12,7 @@
 
 .main-info {
     width: 30%;
-    padding: 20px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,10 +21,52 @@
 
 .main-info h3 {
     font-size: 24px;
+    display: flex;
+    margin-bottom: 5%;
+    color: rgb(252, 224, 224);
 }
 
 .main-info p {
     font-size: 14px;
+}
+
+.adress {
+    display: flex;
+}
+
+.adress img {
+    width: 10%;
+    color: #ff8a00;
+}
+
+.phone {
+    display: flex;
+}
+
+.phone img {
+    width: 10%;
+    background: transparent;
+}
+
+.phone a {
+    color: #ff8a00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.email {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.email a {
+    color: #ff8a00;
+}
+
+.email img {
+    width: 10%;
 }
 
 .working-time {
@@ -32,7 +75,24 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+}
+
+.working-time h4 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 4%;
+    color: #faa13a;
+    font-size: 24px;
+}
+
+.working-time img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.working-time .format-date {
+    display: flex;
 }
 
 .social-media {
@@ -44,10 +104,38 @@
     align-items: center;
 }
 
+.social-media h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: #faa13a;
+    font-size: 24px;
+}
+
 .social-media .images {
     display: flex;
     gap: 10px;
     padding-top: 20px;
+    align-items: center;
+}
+
+.social-media img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.social-media a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-media img {
+    transition: transform 0.2s ease, opacity 02s ease;
+}
+
+.social-media a:hover img {
+    transform: scale(1.15);
+    opacity: 0.85;
 }
 
 .copy-right {

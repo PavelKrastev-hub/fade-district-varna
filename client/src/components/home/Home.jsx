@@ -19,7 +19,7 @@ export default function Home() {
             <section class="our-services">
                 <div className="text-in-left">
                     <p class="section-subtitle">OUR SERVICES</p>
-                    <h2 class="section-title">WHAT WE OFFER</h2>
+                    <h2 class="section-title">What We Offer</h2>
                 </div>
                 <ul class="services-list">
                     <li class="service-item">
@@ -28,7 +28,7 @@ export default function Home() {
                         <p class="service-desc">Modern & Classic Styles</p>
                     </li>
                     <li class="service-item">
-                        <img src="images/service2.png" alt="Shaving" />
+                        <img src="images/blade.png" alt="Shaving" />
                         <h3 class="service-title">Shaves</h3>
                         <p class="service-desc">Hot Towel Shave</p>
                     </li>

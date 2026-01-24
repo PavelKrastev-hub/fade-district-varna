@@ -9,11 +9,13 @@ body {
 
 /* HEADER BASE */
 .header {
+    font-family: 'Koh Santepheap', serif;
+    font-weight: 400;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    background-image: url(../images/homePage.png);
+    background-image: url(../images/headerBackground.png);
     background-repeat: no-repeat;
     /* background-position: center; */
     background-size: cover;
