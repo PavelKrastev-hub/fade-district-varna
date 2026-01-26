@@ -2,14 +2,15 @@ export default function Home() {
     return (
         <main className="home">
             <section className="text">
-                <h1>
-                    <span className="word-white">Style </span>
-                    <span className="word-orange">your </span>
-                    <span className="word-white">best </span>
-                    <span className="word-orange">look!</span>
-                </h1>
-                <h2 className="">Professional Barbershop!</h2>
-
+                <div className="title-text">
+                    <h1>
+                        <span className="word-white">Style </span>
+                        <span className="word-orange">your </span>
+                        <span className="word-white">best </span>
+                        <span className="word-orange">look!</span>
+                    </h1>
+                    <h2 className="">Professional Barbershop!</h2>
+                </div>
                 <div className="buttons">
                     <button className="btn book-now">Book Now</button>
                     <button className="btn learn-more">Learn More</button>

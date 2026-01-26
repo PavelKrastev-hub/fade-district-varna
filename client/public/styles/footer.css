@@ -2,12 +2,14 @@
     background-image: url(../images/downBackgorund.png);
     border-top: 1px solid rgb(49, 49, 49);
     font-family: 'Koh Santepheap', serif;
+    width: 100%;
 }
 
 .main-div {
     display: flex;
     color: white;
     justify-content: space-around;
+    max-height: 30vh;
 }
 
 .main-info {
@@ -17,56 +19,54 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    gap: 5px;
 }
 
 .main-info h3 {
-    font-size: 24px;
-    display: flex;
-    margin-bottom: 5%;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
     color: rgb(252, 224, 224);
+    letter-spacing: 1px;
 }
 
-.main-info p {
-    font-size: 14px;
-}
-
-.adress {
-    display: flex;
-}
-
-.adress img {
-    width: 10%;
-    color: #ff8a00;
-}
-
-.phone {
-    display: flex;
-}
-
-.phone img {
-    width: 10%;
-    background: transparent;
-}
-
-.phone a {
-    color: #ff8a00;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
+.adress,
+.phone,
 .email {
     display: flex;
-    justify-content: center;
     align-items: center;
+    gap: 5px;
 }
 
+.adress img,
+.phone img,
+.email img {
+    width: 2rem;
+    height: 2rem;
+    flex-shrink: 0;
+}
+
+.adress p,
+.phone a,
+.email p,
+.email a {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+.phone a,
 .email a {
     color: #ff8a00;
+    text-decoration: none;
 }
 
-.email img {
-    width: 10%;
+.phone a:hover,
+.email a:hover {
+    text-decoration: underline;
+}
+
+.email p {
+    margin: 0;
 }
 
 .working-time {
@@ -74,25 +74,39 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 
 .working-time h4 {
     font-family: 'Montserrat', sans-serif;
-    margin-bottom: 4%;
     color: #faa13a;
-    font-size: 24px;
+    font-size: 2em;
+    letter-spacing: 1px;
 }
 
-.working-time img {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
+.clock-on-left img {
+    width: 2rem;
+    height: 2rem;
 }
 
-.working-time .format-date {
+.format-date {
     display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.open-hours {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.open-hours p {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
 }
 
 .social-media {
@@ -100,37 +114,26 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-content: center;
     align-items: center;
+    gap: 10px;
 }
 
 .social-media h4 {
     font-family: 'Montserrat', sans-serif;
     color: #faa13a;
-    font-size: 24px;
+    font-size: 2em;
+    letter-spacing: 1px;
 }
 
 .social-media .images {
     display: flex;
-    gap: 10px;
-    padding-top: 20px;
-    align-items: center;
+    gap: 20px;
 }
 
 .social-media img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-}
-
-.social-media a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.social-media img {
-    transition: transform 0.2s ease, opacity 02s ease;
+    width: 3.5rem;
+    height: 3.5rem;
+    transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 .social-media a:hover img {

@@ -16,8 +16,7 @@ export default function Footer() {
                     </div>
                     <div className="email">
                         <img src="./images/email.png" alt="" />
-                        <p className="email">Email: </p>
-                        <a href="mailto:info@barbershop.bg">fade_district@barbershop.bg</a>
+                        <p className="email-paragraph">Email:<a href="mailto:info@barbershop.bg">fade_district@barbershop.bg</a> </p>
                     </div>
                 </div>
 
