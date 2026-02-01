@@ -1,3 +1,5 @@
+import { Link } from 'react-router'
+
 export default function Home() {
     return (
         <main className="home">
@@ -12,8 +14,8 @@ export default function Home() {
                     <h2 className="">Professional Barbershop!</h2>
                 </div>
                 <div className="buttons">
-                    <button className="btn book-now">Book Now</button>
-                    <button className="btn learn-more">Learn More</button>
+                    <Link to={'/book-now'} className="btn book-now">Book Now</Link>
+                    <Link to={'/learn-more'} className="btn learn-more">Learn More</Link>
                 </div>
             </section>
 
@@ -40,7 +42,7 @@ export default function Home() {
                     </li>
                 </ul>
                 <div class="services-btn">
-                    <button class="btn view-services">View All Services</button>
+                    <Link to={'/all-services'} class="btn view-services">View All Services</Link>
                 </div>
             </section>
         </main>
