@@ -20,7 +20,7 @@ export default function Header() {
                             <Link to={"/services"}>Services</Link>
                         </li>
                         <li className="item">
-                            <Link to={"/book"}>Book</Link>
+                            <Link to={"/appointment"}>Book</Link>
                         </li>
                         <li className="item">
                             <Link to={"/contact"}>Contact</Link>
