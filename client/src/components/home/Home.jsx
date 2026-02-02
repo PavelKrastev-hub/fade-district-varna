@@ -19,30 +19,30 @@ export default function Home() {
                 </div>
             </section>
 
-            <section class="our-services">
+            <section className="our-services">
                 <div className="text-in-left">
-                    <p class="section-subtitle">OUR SERVICES</p>
-                    <h2 class="section-title">What We Offer</h2>
+                    <p className="section-subtitle">OUR SERVICES</p>
+                    <h2 className="section-title">What We Offer</h2>
                 </div>
-                <ul class="services-list">
-                    <li class="service-item">
+                <ul className="services-list">
+                    <li className="service-item">
                         <img src="./images/clipper.png" alt="Haircut" />
-                        <h3 class="service-title">Haircuts</h3>
-                        <p class="service-desc">Modern & Classic Styles</p>
+                        <h3 className="service-title">Haircuts</h3>
+                        <p className="service-desc">Modern & Classic Styles</p>
                     </li>
-                    <li class="service-item">
+                    <li className="service-item">
                         <img src="images/blade.png" alt="Shaving" />
-                        <h3 class="service-title">Shaves</h3>
-                        <p class="service-desc">Hot Towel Shave</p>
+                        <h3 className="service-title">Shaves</h3>
+                        <p className="service-desc">Hot Towel Shave</p>
                     </li>
-                    <li class="service-item">
+                    <li className="service-item">
                         <img src="images/beard.png" alt="Styling" />
-                        <h3 class="service-title">Beard Trimming</h3>
-                        <p class="service-desc">Expert Grooming</p>
+                        <h3 className="service-title">Beard Trimming</h3>
+                        <p className="service-desc">Expert Grooming</p>
                     </li>
                 </ul>
-                <div class="services-btn">
-                    <Link to={'/all-services'} class="btn view-services">View All Services</Link>
+                <div className="services-btn">
+                    <Link to={'/all-services'} className="btn view-services">View All Services</Link>
                 </div>
             </section>
         </main>

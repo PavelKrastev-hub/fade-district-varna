@@ -6,7 +6,11 @@ import Register from "./components/register/Register.jsx";
 import Login from "./components/login/Login.jsx";
 import Appointment from "./components/appointment/Appointment.jsx";
 
+// import UserContext from "./contexts/UserContext.jsx";
+// import { useContext } from "react";
+
 function App() {
+    // const { user } = useContext(UserContext);
 
     return (
         <>
