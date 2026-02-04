@@ -1,3 +1,10 @@
+html,
+body {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -192,4 +199,86 @@ h2 {
     border-color: #777;
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.05);
     transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+
+    /* HERO SECTION */
+    .text {
+        min-height: 70vh;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .text .title-text {
+        font-size: 2em;
+        padding: 0;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    h2 {
+        font-size: 1.1em;
+    }
+
+    /* BUTTONS IN HERO */
+    .text .buttons {
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px 0;
+        width: 100%;
+        align-items: center;
+    }
+
+    .home .btn.book-now,
+    .home .btn.learn-more {
+        width: 100%;
+        max-width: 260px;
+        padding: 10px 0;
+        font-size: 1em;
+    }
+
+    /* OUR SERVICES SECTION */
+    .our-services .text-in-left {
+        padding: 30px 20px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .section-subtitle {
+        font-size: 16px;
+    }
+
+    /* SERVICES LIST */
+    .services-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 0 20px;
+    }
+
+    .service-item {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .service-item img {
+        width: 70px;
+        height: 70px;
+    }
+
+    /* VIEW SERVICES BUTTON */
+    .view-services {
+        width: 100%;
+        max-width: 260px;
+        text-align: center;
+        padding: 10px 0;
+    }
 }

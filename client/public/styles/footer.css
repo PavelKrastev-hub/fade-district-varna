@@ -147,3 +147,62 @@
     justify-content: center;
     border-top: 1px solid rgb(49, 49, 49);
 }
+
+@media (max-width: 900px) {
+
+    .main-div {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 20px 0;
+        max-height: none;
+    }
+
+    .main-info,
+    .working-time,
+    .social-media {
+        width: 90%;
+        padding: 10px 0;
+        align-items: center;
+        text-align: center;
+    }
+
+    .main-info h3,
+    .working-time h4,
+    .social-media h4 {
+        font-size: 1.4rem;
+    }
+
+    .adress p,
+    .phone a,
+    .email p,
+    .email a,
+    .open-hours p {
+        font-size: 0.9rem;
+    }
+
+    .format-date {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .clock-on-left img {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .social-media .images {
+        gap: 15px;
+    }
+
+    .social-media img {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .copy-right {
+        font-size: 0.8rem;
+        padding: 10px 0;
+    }
+}

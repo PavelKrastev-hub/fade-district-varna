@@ -24,6 +24,15 @@ body {
     height: 70px;
 }
 
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+
 /* NAVIGATION LIST */
 .navigation ul {
     display: flex;
@@ -143,4 +152,119 @@ body {
 .btn:active {
     transform: translateY(0);
     box-shadow: none;
+}
+
+@media (max-width: 900px) {
+
+    .header {
+        padding: 0 12px;
+    }
+
+    /* ===== Side Menu ===== */
+    .navigation {
+        position: fixed;
+        top: 0;
+        right: -280px;
+        width: 280px;
+        height: 100vh;
+        background: linear-gradient(180deg, #0b0b0b, #141414);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 90px;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        border-left: 1px solid rgba(255, 138, 0, 0.15);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .navigation.open {
+        right: 0;
+    }
+
+    .navigation ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* ===== Menu Items ===== */
+    .navigation li {
+        width: 100%;
+        text-align: center;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .navigation li:last-child {
+        border-bottom: none;
+    }
+
+    .navigation a {
+        font-size: 1.3em;
+        line-height: normal;
+        width: 100%;
+        display: block;
+        padding: 6px 0;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        color: #dcdcdc;
+        transition: background 0.2s ease, color 0.2s ease;
+        border-radius: 6px;
+    }
+
+    /* махаме hover ефекта на мобилен */
+    .navigation li::after {
+        display: none;
+    }
+
+    .navigation li:hover a {
+        color: #dcdcdc;
+    }
+
+    /* active / tap effect */
+    .navigation a:active {
+        background: rgba(255, 138, 0, 0.12);
+        color: #ff8a00;
+    }
+
+    /* ===== Hamburger ===== */
+    .hamburger {
+        display: block;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    /* ===== Hide desktop buttons ===== */
+    .buttons {
+        display: none;
+    }
+
+    /* ===== Logo size ===== */
+    .logo a {
+        font-size: 1.4em;
+    }
+}
+
+/* ===== Overlay ===== */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 999;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
 }
