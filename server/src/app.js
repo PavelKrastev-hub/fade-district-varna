@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
+import cors from 'cors'
 
 import authRoutes from './routes/authRoute.js';
 
@@ -28,6 +29,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
+
+app.use(cors({
+    origin: '*',
+}))
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/dist/index.html'));
