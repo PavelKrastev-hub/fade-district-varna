@@ -10,8 +10,10 @@ export default function useForm(callback, initialValues) {
         }))
     };
 
-    const formAction = (formData) => {
-        callback(values, formData);
+    const submitHandler = (e) => {
+        e.preventDefault();
+        console.log('Submit Handler Fired', values);
+        callback(values);
     }
 
     const register = (fieldName) => {
@@ -24,9 +26,8 @@ export default function useForm(callback, initialValues) {
 
     return {
         values,
-        setValues,
         register,
         changeHandler,
-        formAction,
+        submitHandler,
     }
 }

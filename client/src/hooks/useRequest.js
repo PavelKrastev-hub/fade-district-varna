@@ -8,6 +8,7 @@ export default function useRequest(url, initialState) {
     const [data, setData] = useState(initialState);
 
     const request = async (url, method, data, config = {}) => {
+        console.log('Sending request', method, url, data);
         let options = {};
 
         if (method) {

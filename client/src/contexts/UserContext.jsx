@@ -21,12 +21,16 @@ export function UserProvider({
     const [user, setUser] = useState(null);
     const { request } = useRequest();
 
-    const registerHandler = async (name, email, password) => {
-        const newUser = { name, email, password };
+    const registerHandler = async (values) => {
+        const { name, email, password } = values;
+
+        const newUser = { name, email, password }
 
         const result = await request('/users/register', 'POST', newUser);
 
         setUser(result);
+
+        return result;
     };
 
     const loginHandler = async (email, password) => {

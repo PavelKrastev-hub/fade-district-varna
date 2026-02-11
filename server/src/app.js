@@ -33,6 +33,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
-app.use('/auth', authRoutes);
+app.use('/users', authRoutes);
 
 app.listen(3030, () => console.log('Server is listening on http://localhost:3030...'));
