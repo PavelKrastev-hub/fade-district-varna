@@ -160,7 +160,6 @@ body {
         padding: 0 12px;
     }
 
-    /* ===== Side Menu ===== */
     .navigation {
         position: fixed;
         top: 0;
@@ -190,7 +189,6 @@ body {
         padding: 0;
     }
 
-    /* ===== Menu Items ===== */
     .navigation li {
         width: 100%;
         text-align: center;
@@ -215,7 +213,6 @@ body {
         border-radius: 6px;
     }
 
-    /* махаме hover ефекта на мобилен */
     .navigation li::after {
         display: none;
     }
@@ -224,13 +221,11 @@ body {
         color: #dcdcdc;
     }
 
-    /* active / tap effect */
     .navigation a:active {
         background: rgba(255, 138, 0, 0.12);
         color: #ff8a00;
     }
 
-    /* ===== Hamburger ===== */
     .hamburger {
         display: block;
         font-size: 2rem;
@@ -239,18 +234,15 @@ body {
         z-index: 1001;
     }
 
-    /* ===== Hide desktop buttons ===== */
     .buttons {
         display: none;
     }
 
-    /* ===== Logo size ===== */
     .logo a {
         font-size: 1.4em;
     }
 }
 
-/* ===== Overlay ===== */
 .overlay {
     position: fixed;
     top: 0;

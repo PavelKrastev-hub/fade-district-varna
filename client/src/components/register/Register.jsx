@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import UserContext from '../../contexts/UserContext.jsx';
 
 const initialValues = {
@@ -12,6 +12,7 @@ const initialValues = {
 
 export default function Register() {
     const navigate = useNavigate();
+    const [errorPopup, setErrorPopup] = useState('');
 
     const { setUser } = useContext(UserContext);
 
@@ -59,15 +60,23 @@ export default function Register() {
 
             navigate('/');
         } catch (error) {
-            console.error(error.message);
+            setErrorPopup(error.message);
+
+            setTimeout(() => {
+                setErrorPopup('');
+            }, 3000);
         }
     }
 
     return (
         <section className="auth-section register">
+            {errorPopup && (
+                <div className="error-popup">
+                    {errorPopup}
+                </div>
+            )}
             <div className="auth-card">
                 <h2>Register</h2>
-
                 <form onSubmit={handleSubmit(registerHandler)}>
                     <div className="form-group">
                         <label htmlFor="register-name">Name</label>

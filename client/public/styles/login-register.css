@@ -134,6 +134,33 @@
     }
 }
 
+.error-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #e63946;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
 .input-error {
     border: 1.5px solid #e63946;
     background-color: #fff5f5;

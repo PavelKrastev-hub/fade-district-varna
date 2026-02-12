@@ -17,25 +17,27 @@ export default function Header() {
                     </div>
                     <nav className={`navigation ${menuOpen ? "open" : ""}`}>
                         <ul>
-                            <li className="item">
-                                <Link to={"/"} onClick={() => setMenuOpen(false)}>Home</Link>
+                            <li className="nav-item">
+                                <Link to="/">Home</Link>
                             </li>
-                            <li className="item">
-                                <Link to={"/services"} onClick={() => setMenuOpen(false)}>Services</Link>
+                            <li className="nav-item">
+                                <Link to="/services">Services</Link>
                             </li>
-                            <li className="item">
-                                <Link to={"/appointment"} onClick={() => setMenuOpen(false)}>Book</Link>
+                            <li className="nav-item">
+                                <Link to="/appointment">Book</Link>
                             </li>
-                            <li className="item">
-                                <Link to={"/contact"} onClick={() => setMenuOpen(false)}>Contact</Link>
+                            <li className="nav-item">
+                                <Link to="/contact">Contact</Link>
+                            </li>
+
+                            <li className="auth-item">
+                                <Link to="/login" className="login-link">Login</Link>
+                            </li>
+                            <li>
+                                <Link to="/register" className="register-link">Register</Link>
                             </li>
                         </ul>
                     </nav>
-                </div>
-
-                <div className="buttons">
-                    <Link to={'/login'} className="btn login-btn">Login</Link>
-                    <Link to={'/register'} className="btn register-btn">Register</Link>
                 </div>
 
                 <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
