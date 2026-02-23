@@ -15,12 +15,12 @@ export const registerUser = async ({ name, email, password }) => {
     const user = await User.create({ name, email, password: hashedPassword });
 
     const token = jwt.sign(
-        { id: user._id, email: user.email, role: user.role },
+        { id: user._id, email: user.email, name: user.name, role: user.role },
         process.env.JWT_SECRET,
         { expiresIn: '1h' }
     );
 
-    return { token, user: { id: user._id, email: user.email, role: user.role } };
+    return { token, user: { id: user._id, email: user.email, name: user.name, role: user.role } };
 };
 
 export const loginUser = async ({ email, password }) => {
@@ -36,10 +36,10 @@ export const loginUser = async ({ email, password }) => {
     }
 
     const token = jwt.sign(
-        { id: user._id, email: user.email, role: user.role },
+        { id: user._id, email: user.email, name: user.name, role: user.role },
         process.env.JWT_SECRET,
         { expiresIn: '1d' }
     );
 
-    return { token, user: { id: user._id, email: user.email, role: user.role } };
+    return { token, user: { id: user._id, email: user.email, name: user.name, role: user.role } };
 };

@@ -48,8 +48,12 @@ export default function Register() {
             }
 
             const result = await response.json();
-            setUser(result);
-            navigate('/');
+
+
+            setUser(result.user);
+            localStorage.setItem("token", result.token);
+
+            navigate("/");
 
         } catch (error) {
             setErrorPopup(error.message);
