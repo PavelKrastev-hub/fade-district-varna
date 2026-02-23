@@ -1,79 +1,87 @@
+import { useState } from "react";
+
 export default function ServiceSection() {
+
+    const [selectedService, setSelectedService] = useState(null);
+
+    const services = [
+        {
+            id: 1,
+            name: "Коса",
+            price: "15€",
+            description: "Професионално мъжко подстригване с внимание към детайла."
+        },
+        {
+            id: 2,
+            name: "Брада",
+            price: "10€",
+            description: "Оформяне и поддръжка на брада с прецизност и стил."
+        },
+        {
+            id: 3,
+            name: "Комбо",
+            price: "20€",
+            description: "Подстригване + брада за цялостна визия."
+        }
+    ];
+
     return (
         <section className="py-5 bg-light" id="services">
             <div className="container">
 
                 <div className="text-center mb-5">
                     <h2 className="fw-bold">Нашите услуги</h2>
-                    <p className="text-muted">Избери услуга и запази своя час онлайн</p>
+                    <p className="text-muted">
+                        Избери услуга и запази своя час онлайн
+                    </p>
                 </div>
 
                 <div className="row g-4">
 
-                    <div className="col-md-4">
-                        <div className="card h-100 shadow-sm position-relative">
+                    {services.map(service => (
+                        <div key={service.id} className="col-md-4">
+                            <div
+                                className={`card h-100 shadow-sm position-relative 
+                                ${selectedService === service.id ? "border-dark" : ""}`}
+                                onClick={() => setSelectedService(service.id)}
+                                style={{ cursor: "pointer" }}
+                            >
 
-                            <span className="badge bg-dark position-absolute top-0 end-0 m-3 fs-6">
-                                15€
-                            </span>
+                                <span className="badge bg-dark position-absolute top-0 end-0 m-3 fs-6">
+                                    {service.price}
+                                </span>
 
-                            <div className="card-body text-center">
-                                <h4 className="card-title fw-bold">Коса</h4>
-                                <p className="card-text text-muted">
-                                    Професионално мъжко подстригване с внимание към детайла.
-                                </p>
-                                <button className="btn btn-outline-dark mt-3">
-                                    Избери
-                                </button>
+                                <div className="card-body text-center">
+                                    <h4 className="card-title fw-bold">
+                                        {service.name}
+                                    </h4>
+
+                                    <p className="card-text text-muted">
+                                        {service.description}
+                                    </p>
+
+                                    <button
+                                        className={`btn mt-3 
+                                        ${selectedService === service.id ? "btn-dark" : "btn-outline-dark"}`}
+                                    >
+                                        {selectedService === service.id ? "Избрано ✔" : "Избери"}
+                                    </button>
+
+                                </div>
                             </div>
-
                         </div>
-                    </div>
+                    ))}
 
-                    <div className="col-md-4">
-                        <div className="card h-100 shadow-sm position-relative">
-
-                            <span className="badge bg-dark position-absolute top-0 end-0 m-3 fs-6">
-                                10€
-                            </span>
-
-                            <div className="card-body text-center">
-                                <h4 className="card-title fw-bold">Брада</h4>
-                                <p className="card-text text-muted">
-                                    Оформяне и поддръжка на брада с прецизност и стил.
-                                </p>
-                                <button className="btn btn-outline-dark mt-3">
-                                    Избери
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div className="col-md-4">
-                        <div className="card h-100 shadow-sm position-relative border-dark">
-
-                            <span className="badge bg-dark position-absolute top-0 end-0 m-3 fs-6">
-                                20€
-                            </span>
-
-                            <div className="card-body text-center">
-                                <h4 className="card-title fw-bold">Комбо</h4>
-                                <p className="card-text text-muted">
-                                    Подстригване + брада за цялостна визия.
-                                </p>
-                                <button className="btn btn-dark mt-3">
-                                    Избери
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
                     <div className="text-center mt-4">
-                        <a href="#booking" className="btn btn-primary btn-lg btn-40">
+                        <a
+                            href="#booking"
+                            className="btn btn-primary btn-lg"
+                            onClick={() => console.log("Selected service:", selectedService)}
+                        >
                             Запази час
                         </a>
                     </div>
+
                 </div>
             </div>
         </section>
