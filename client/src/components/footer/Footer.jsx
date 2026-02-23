@@ -1,54 +1,51 @@
 export default function Footer() {
     return (
-        // < !--Footer -- >
-        <footer className="footer">
-            <div className="main-div">
-                {/* <!-- Contact Info --> */}
-                <div className="main-info">
-                    <h3>Fade District Varna</h3>
-                    <div className="adress">
-                        <img src="./images/adress.png" alt="" />
-                        <p> Адрес: ул. „Константин Фотинов“ 12, Варна, България</p>
-                    </div>
-                    <div className="phone">
-                        <img src="./images/phone.png" alt="phone" />
-                        <a href="tel:+359888123456">+359 888 123 456</a>
-                    </div>
-                    <div className="email">
-                        <img src="./images/email.png" alt="" />
-                        <p className="email-paragraph">Email:<a href="mailto:info@barbershop.bg">fade_district@barbershop.bg</a> </p>
-                    </div>
-                </div>
+        <footer className="bg-dark text-light pt-5 pb-3">
+            <div className="container">
 
-                {/* <!-- Opening Hours --> */}
-                <div className="working-time">
-                    <h4>Работно време</h4>
-                    <div className="format-date">
-                        <div className="clock-on-left">
-                            <img src="./images/clock.png" alt="" />
+                <div className="row">
+
+                    <div className="col-md-4 mb-4">
+                        <h5 className="fw-bold">Fade District</h5>
+                        <p className="small text-light">Професионални фризьорски услуги във Варна.</p>
+                    </div>
+
+                    <div className="col-md-4 mb-4">
+                        <h5 className="fw-bold">Навигация</h5>
+                        <ul className="list-unstyled">
+                            <li><a href="/" className="text-light text-decoration-none">Начало</a></li>
+                            <li><a href="#services" className="text-light text-decoration-none">Услуги</a></li>
+                            <li><a href="#catalog" className="text-light text-decoration-none">Каталог</a></li>
+                            <li><a href="#contact" className="text-light text-decoration-none">Контакти</a></li>
+                        </ul>
+                    </div>
+
+                    <div className="col-md-4 mb-4">
+                        <h5 className="fw-bold">Контакти</h5>
+                        <p className="mb-1">гр. Варна, ул "Константин Фотинов 12"</p>
+                        <p className="mb-1"><a href="tel:+359888123456" className="text-light text-decoration-none">+359 888 123
+                            456</a></p>
+                        <p className="mb-1"><a href="mailto:info@fadedistrict.bg"
+                            className="text-light text-decoration-none">info@fadedistrict.bg</a></p>
+
+                        <div className="mt-2 d-flex gap-3">
+                            <a href="https://www.facebook.com" target="_blank" className="text-light fs-5">
+                                <i className="bi bi-facebook"></i>
+                            </a>
+                            <a href="https://www.instagram.com" target="_blank" className="text-light fs-5">
+                                <i className="bi bi-instagram"></i>
+                            </a>
                         </div>
-                        <div className="open-hours">
-                            <p>Пон-Пет: 09:00 - 20:00</p>
-                            <p>Събота: 09:00 - 12:00</p>
-                            <p>Неделя: Почивен ден</p>
-                        </div>
                     </div>
+
                 </div>
 
-                {/* <!-- Social Media --> */}
-                <div className="social-media">
-                    <h4>Последвай ни</h4>
-                    <div className="images">
-                        <a href="#" className="facebook"><img src="./images/facebook.png" alt="facebook" /></a>
-                        <a href="#" className="instagram"><img src="./images/instagram.png" alt="instagram" /></a>
-                        <a href="#" className="tiktok"><img src="./images/tiktok.png" alt="tiktok" /></a>
-                    </div>
-                </div>
-            </div>
+                <hr className="border-light" />
 
-            {/* <!-- Bottom --> */}
-            <div className="copy-right">
-                &copy; 2026 Fade Distrct Varna. All Rights Reserved.
+                <div className="text-center small">
+                    © 2026 Fade District. Всички права запазени.
+                </div>
+
             </div>
         </footer>
     );

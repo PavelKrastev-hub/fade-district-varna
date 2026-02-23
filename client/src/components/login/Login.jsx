@@ -1,45 +1,49 @@
+// import { useState } from 'react';
+import { Link } from 'react-router'
+
 export default function Login() {
+
+    // const [data, setData] = useState({
+    //     email: '',
+    //     password: '',
+    // });
+
+
+    const formAction = (formData) => {
+        const email = formData.get('email');
+
+        console.log(email);
+    }
+
     return (
-        <section className="auth-section login">
-            <div className="auth-card">
-                <h2>Login</h2>
+        <section className="py-5" id="loginPage">
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-md-5">
 
-                <form>
-                    <div className="form-group">
-                        <label for="login-email">Email</label>
-                        <input
-                            type="email"
-                            id="login-email"
-                            name="email"
-                            placeholder="Enter your email"
-                            required
-                        />
+                        <div className="card p-4 shadow-sm">
+
+                            <h2 className="fw-bold text-center mb-4">Login</h2>
+
+                            <form id="loginForm">
+                                <div className="mb-3">
+                                    <label className="form-label">Email</label>
+                                    <input type="email" className="form-control" required />
+                                </div>
+
+                                <div className="mb-3">
+                                    <label className="form-label">Парола</label>
+                                    <input type="password" className="form-control" required />
+                                </div>
+
+                                <button type="submit" className="btn btn-dark w-100">Вход</button>
+                            </form>
+
+                        </div>
+
                     </div>
-
-                    <div className="form-group">
-                        <label for="login-password">Password</label>
-                        <input
-                            type="password"
-                            id="login-password"
-                            name="password"
-                            placeholder="Enter your password"
-                            required
-                        />
-                    </div>
-
-                    <div className="form-extra">
-                        <a href="#" className="forgot-password">Forgot your password?</a>
-                    </div>
-
-                    <button type="submit" className="btn-primary">Login</button>
-                </form>
-
-                <p className="auth-switch">
-                    Don’t have an account?
-                    <a href="/register">Register now</a>
-                </p>
+                </div>
             </div>
         </section>
     );
 }
-

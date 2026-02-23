@@ -14,12 +14,63 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <title>Fade District</title>
 </head>
 
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- <script>
+    const dateInput = document.getElementById("dateInput");
+    const timeSelect = document.getElementById("timeSelect");
+    const dateError = document.getElementById("dateError");
+
+    dateInput.addEventListener("change", function () {
+      const selectedDate = new Date(this.value);
+      const day = selectedDate.getDay();
+
+      timeSelect.innerHTML = "";
+      dateError.classList.add("d-none");
+
+      if (day === 0) {
+        dateError.classList.remove("d-none");
+        this.value = "";
+        return;
+      }
+
+      let startHour = 10;
+      let endHour = 19;
+
+      if (day === 6) {
+        endHour = 14;
+      }
+
+      const optionDefault = document.createElement("option");
+      optionDefault.textContent = "Избери час";
+      optionDefault.value = "";
+      timeSelect.appendChild(optionDefault);
+
+      for (let hour = startHour; hour <= endHour; hour++) {
+        for (let minute of ["00", "30"]) {
+
+          let timeString = `${hour.toString().padStart(2, "0")}:${minute}`;
+
+          if (timeString === "13:00" || timeString === "13:30") continue;
+
+          if (hour === endHour && minute === "30") continue;
+
+          const option = document.createElement("option");
+          option.value = timeString;
+          option.textContent = timeString;
+
+          timeSelect.appendChild(option);
+        }
+      }
+    });
+  </script> -->
 </body>
 
 </html>

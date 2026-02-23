@@ -13,7 +13,6 @@ const initialValues = {
 export default function Register() {
     const navigate = useNavigate();
     const [errorPopup, setErrorPopup] = useState('');
-
     const { setUser } = useContext(UserContext);
 
     const {
@@ -25,11 +24,6 @@ export default function Register() {
         defaultValues: initialValues,
     });
 
-
-    const errorText = (field) => formState.errors[field] && (
-        <p className='error-text'>{formState.errors[field].message}</p>
-    )
-
     const registerHandler = async (data) => {
         const { name, email, password, confirmPassword } = data;
 
@@ -40,9 +34,7 @@ export default function Register() {
         try {
             const response = await fetch('http://localhost:3030/users/register', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     name: name.trim(),
                     email: email.trim(),
@@ -52,13 +44,13 @@ export default function Register() {
 
             if (!response.ok) {
                 const error = await response.json();
-                throw new Error(error.message || 'Register failed!')
+                throw new Error(error.message || 'Register failed!');
             }
 
             const result = await response.json();
             setUser(result);
-
             navigate('/');
+
         } catch (error) {
             setErrorPopup(error.message);
 
@@ -66,107 +58,122 @@ export default function Register() {
                 setErrorPopup('');
             }, 3000);
         }
-    }
+    };
 
     return (
-        <section className="auth-section register">
-            {errorPopup && (
-                <div className="error-popup">
-                    {errorPopup}
+        <section className="py-5" id="registerPage">
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-md-5">
+
+                        <div className="card p-4 shadow-sm">
+
+                            <h2 className="fw-bold text-center mb-4">Register</h2>
+
+                            {errorPopup && (
+                                <div className="alert alert-danger">
+                                    {errorPopup}
+                                </div>
+                            )}
+
+                            <form onSubmit={handleSubmit(registerHandler)}>
+
+                                <div className="mb-3">
+                                    <label className="form-label">Name</label>
+                                    <input
+                                        type="text"
+                                        className={`form-control ${formState.errors.name ? 'is-invalid' : ''}`}
+                                        {...register('name', {
+                                            required: 'Name is required!',
+                                            minLength: {
+                                                value: 2,
+                                                message: 'Name must be at least 2 characters!'
+                                            }
+                                        })}
+                                    />
+                                    {formState.errors.name && (
+                                        <div className="invalid-feedback">
+                                            {formState.errors.name.message}
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="mb-3">
+                                    <label className="form-label">Email</label>
+                                    <input
+                                        type="email"
+                                        className={`form-control ${formState.errors.email ? 'is-invalid' : ''}`}
+                                        {...register('email', {
+                                            required: 'Email is required!',
+                                            pattern: {
+                                                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                                message: 'Invalid email address!'
+                                            }
+                                        })}
+                                    />
+                                    {formState.errors.email && (
+                                        <div className="invalid-feedback">
+                                            {formState.errors.email.message}
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="mb-3">
+                                    <label className="form-label">Парола</label>
+                                    <input
+                                        type="password"
+                                        className={`form-control ${formState.errors.password ? 'is-invalid' : ''}`}
+                                        {...register('password', {
+                                            required: 'Password is required!',
+                                            minLength: {
+                                                value: 6,
+                                                message: 'Password must be at least 6 characters!'
+                                            },
+                                            pattern: {
+                                                value: /^(?=.*[A-Za-z])(?=.*\d).+$/,
+                                                message: 'Password must contain at least one letter and one number!'
+                                            }
+                                        })}
+                                    />
+                                    {formState.errors.password && (
+                                        <div className="invalid-feedback">
+                                            {formState.errors.password.message}
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="mb-3">
+                                    <label className="form-label">Повтори паролата</label>
+                                    <input
+                                        type="password"
+                                        className={`form-control ${formState.errors.confirmPassword ? 'is-invalid' : ''}`}
+                                        {...register('confirmPassword', {
+                                            required: 'Please confirm your password!',
+                                            validate: (value) =>
+                                                value === watch('password') || 'Passwords do not match!'
+                                        })}
+                                    />
+                                    {formState.errors.confirmPassword && (
+                                        <div className="invalid-feedback">
+                                            {formState.errors.confirmPassword.message}
+                                        </div>
+                                    )}
+                                </div>
+
+                                <button type="submit" className="btn btn-primary w-100">
+                                    Регистрация
+                                </button>
+
+                            </form>
+
+                            <p className="text-center mt-3">
+                                Already have an account?{" "}
+                                <Link to="/login">Login here</Link>
+                            </p>
+
+                        </div>
+                    </div>
                 </div>
-            )}
-            <div className="auth-card">
-                <h2>Register</h2>
-                <form onSubmit={handleSubmit(registerHandler)}>
-                    <div className="form-group">
-                        <label htmlFor="register-name">Name</label>
-                        <input
-                            {...register('name', {
-                                required: 'Name is required!',
-                                minLength: {
-                                    value: 2,
-                                    message: 'Name must be at least 2 characters!'
-                                }
-                            })}
-                            className={formState.errors.name ? 'input-error' : ''}
-                            type="text"
-                            id="register-name"
-                            placeholder="Your full name"
-                        />
-                        <div className="error-container">
-                            {errorText('name')}
-                        </div>
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="register-email">Email</label>
-                        <input
-                            {...register('email', {
-                                required: 'Email is required!',
-                                pattern: {
-                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                                    message: 'Invalid email address!'
-                                }
-                            })}
-                            className={formState.errors.name ? 'input-error' : ''}
-                            type="email"
-                            id="register-email"
-                            placeholder="Your email address"
-                        />
-                        <div className="error-container">
-                            {errorText('email')}
-                        </div>
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="register-password">Password</label>
-                        <input
-                            {...register('password', {
-                                required: 'Password is required!',
-                                minLength: {
-                                    value: 6,
-                                    message: 'Password must be at least 6 characters!'
-                                },
-                                pattern: {
-                                    value: /^(?=.*[A-Za-z])(?=.*\d).+$/,
-                                    message: 'Password must contain at least one letter and one number!'
-                                }
-                            })}
-                            className={formState.errors.name ? 'input-error' : ''}
-                            type="password"
-                            id="register-password"
-                            placeholder="Create a password"
-                        />
-                        <div className="error-container">
-                            {errorText('password')}
-                        </div>
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="confirm-password">Confirm password</label>
-                        <input
-                            {...register('confirmPassword', {
-                                required: 'Please confirm your password!',
-                                validate: (value) =>
-                                    value === watch('password') || 'Passwords do not match!'
-                            })}
-                            className={formState.errors.name ? 'input-error' : ''}
-                            type="password"
-                            id="confirm-password"
-                            placeholder="Confirm a password"
-                        />
-                        <div className="error-container">
-                            {errorText('confirmPassword')}
-                        </div>
-                    </div>
-
-                    <button type="submit" className="btn-primary">Register</button>
-                </form>
-
-                <p className="auth-switch">
-                    Already have an account?
-                    <Link to={'/login'} href="/login">Login here</Link>
-                </p>
             </div>
         </section>
     );

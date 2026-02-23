@@ -17,7 +17,7 @@ body {
     padding: 0 20px;
     background-image: url(../images/headerBackground.png);
     background-repeat: no-repeat;
-    /* background-position: center; */
+    background-position: center;
     background-size: cover;
     border-bottom: 1px solid rgb(49, 49, 49);
     position: relative;
@@ -30,6 +30,112 @@ body {
     color: white;
     cursor: pointer;
     z-index: 1001;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 2em;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: #dcdcdc;
+    font-size: 1.1em;
+    text-decoration: none;
+    padding: 0 5px;
+    line-height: 2em;
+    transition: color 0.2s ease;
+}
+
+/* underline effect */
+.nav-links li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #ff8a00;
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+
+.nav-links li:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-links li:hover a {
+    color: #fff;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 2em;
+    /* width: 2em; */
+}
+
+.btn {
+    display: flex;
+    height: 2em;
+    justify-content: center;
+    padding: 1em;
+}
+
+/* .auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 1.5em; 
+} */
+
+/* общ стил */
+/* .btn {
+    height: 36px;
+    padding: 0 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: normal;
+} */
+
+/* Login */
+.login-btn {
+    background: transparent;
+    border: 1px solid #555;
+    color: #e6e6e6;
+}
+
+.login-btn:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* Register */
+.register-btn {
+    background: #ff8a00;
+    border: 1px solid #ff8a00;
+    color: white;
+}
+
+.register-btn:hover {
+    background: #e67700;
 }
 
 
@@ -54,7 +160,7 @@ body {
     color: #dcdcdc;
     font-size: 1.2em;
     font-weight: 500;
-    padding: 0 5px;
+    /* padding: 0 5px; */
     line-height: 70px;
     text-decoration: none;
     transition: color 0.2s ease;
@@ -156,107 +262,30 @@ body {
 
 @media (max-width: 900px) {
 
-    .header {
-        padding: 0 12px;
-    }
-
     .navigation {
-        position: fixed;
-        top: 0;
-        right: -280px;
-        width: 280px;
-        height: 100vh;
-        background: linear-gradient(180deg, #0b0b0b, #141414);
-        display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 90px;
-        transition: right 0.3s ease;
-        z-index: 1000;
-        border-left: 1px solid rgba(255, 138, 0, 0.15);
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6);
+        align-items: flex-start;
+        gap: 20px;
     }
 
-    .navigation.open {
-        right: 0;
-    }
-
-    .navigation ul {
+    .nav-links {
         flex-direction: column;
-        align-items: center;
         width: 100%;
-        margin: 0;
-        padding: 0;
     }
 
-    .navigation li {
+    .auth-buttons {
+        order: -1;
+        /* бутоните най-отгоре */
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #333;
+        /* визуално разделение */
+    }
+
+    .btn {
         width: 100%;
         text-align: center;
-        padding: 14px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-
-    .navigation li:last-child {
-        border-bottom: none;
-    }
-
-    .navigation a {
-        font-size: 1.3em;
-        line-height: normal;
-        width: 100%;
-        display: block;
-        padding: 6px 0;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-        color: #dcdcdc;
-        transition: background 0.2s ease, color 0.2s ease;
-        border-radius: 6px;
-    }
-
-    .navigation li::after {
-        display: none;
-    }
-
-    .navigation li:hover a {
-        color: #dcdcdc;
-    }
-
-    .navigation a:active {
-        background: rgba(255, 138, 0, 0.12);
-        color: #ff8a00;
-    }
-
-    .hamburger {
-        display: block;
-        font-size: 2rem;
-        color: white;
-        cursor: pointer;
-        z-index: 1001;
-    }
-
-    .buttons {
-        display: none;
-    }
-
-    .logo a {
-        font-size: 1.4em;
-    }
-}
-
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.3s;
-    z-index: 999;
-}
-
-.overlay.show {
-    opacity: 1;
-    visibility: visible;
 }
