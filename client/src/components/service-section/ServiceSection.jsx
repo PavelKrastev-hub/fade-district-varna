@@ -6,19 +6,19 @@ export default function ServiceSection() {
 
     const services = [
         {
-            id: 1,
+            id: 'hair',
             name: "Коса",
             price: "15€",
             description: "Професионално мъжко подстригване с внимание към детайла."
         },
         {
-            id: 2,
+            id: 'beard',
             name: "Брада",
             price: "10€",
             description: "Оформяне и поддръжка на брада с прецизност и стил."
         },
         {
-            id: 3,
+            id: 'combo',
             name: "Комбо",
             price: "20€",
             description: "Подстригване + брада за цялостна визия."
