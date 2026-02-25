@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import cors from 'cors'
 
 import authRoutes from './routes/authRoute.js';
+import bookingRoutes from './routes/bookingRoutes.js';
 
 const app = express();
 
@@ -39,5 +40,6 @@ app.get('/', (req, res) => {
 });
 
 app.use('/users', authRoutes);
+app.use('/bookings', bookingRoutes);
 
 app.listen(3030, () => console.log('Server is listening on http://localhost:3030...'));

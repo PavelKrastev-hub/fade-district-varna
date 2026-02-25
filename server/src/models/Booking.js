@@ -8,6 +8,11 @@ const bookingSchema = new Schema(
             required: true,
         },
 
+        phone: {
+            type: String,
+            required: true
+        },
+
         service: {
             type: String,
             required: true,
@@ -25,8 +30,8 @@ const bookingSchema = new Schema(
 
         status: {
             type: String,
-            enum: ["confirmed", "cancelled"],
-            default: "confirmed",
+            enum: ["потвърдена", "отказана"],
+            default: "потвърдена",
         },
     },
     {

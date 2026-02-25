@@ -1,6 +1,6 @@
 import Booking from "../models/Booking.js";
 
-export const createBooking = async ({ userId, service, date, time }) => {
+export const createBooking = async ({ userId, service, date, time, phone }) => {
 
     const existingBooking = await Booking.findOne({
         date: new Date(date),
@@ -8,7 +8,7 @@ export const createBooking = async ({ userId, service, date, time }) => {
     });
 
     if (existingBooking) {
-        throw new Error("This time slot is already booked");
+        throw new Error("Този час вече е зает!");
     }
 
     const booking = await Booking.create({
@@ -16,7 +16,8 @@ export const createBooking = async ({ userId, service, date, time }) => {
         service,
         date,
         time,
+        phone,
     });
 
-    return booking;
+    return await booking.populate('user', 'name email');
 };
