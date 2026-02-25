@@ -10,7 +10,9 @@ export default function Booking() {
     const [selectedDate, setSelectedDate] = useState(null);
     const [times, setTimes] = useState([]);
     const [selectedTime, setSelectedTime] = useState("");
+    const [phone, setPhone] = useState("");
     const [error, setError] = useState("");
+    const [phoneError, setPhoneError] = useState("");
 
     const handleDateChange = (date) => {
 
@@ -52,12 +54,29 @@ export default function Booking() {
         setTimes(generatedTimes);
     };
 
+    const handlePhoneChange = (e) => {
+        const value = e.target.value;
+
+        if (/^\d*$/.test(value)) {
+            setPhone(value);
+            setPhoneError("");
+        }
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        if (phone.length !== 10) {
+            setPhoneError("Въведете валиден телефонен номер.");
+            return;
+        }
+
         console.log("Date:", selectedDate);
         console.log("Time:", selectedTime);
+        console.log("Phone:", phone);
     };
+
+    // const isPhoneValid = phone.length === 10;
 
     return (
         <section className="py-5" id="booking">
@@ -94,7 +113,6 @@ export default function Booking() {
                                 )}
                             </div>
 
-                            {/* ✅ TIME SELECT */}
                             <div className="mb-3">
                                 <label className="form-label fw-bold">
                                     Избери час
@@ -120,10 +138,31 @@ export default function Booking() {
                                 </select>
                             </div>
 
+                            <div className="mb-3">
+                                <label className="form-label fw-bold">
+                                    Телефонен номер
+                                </label>
+
+                                <input
+                                    type="text"
+                                    className="form-control form-control-lg"
+                                    placeholder="08XXXXXXXX"
+                                    value={phone}
+                                    onChange={handlePhoneChange}
+                                    maxLength={10}
+                                />
+
+                                {phoneError && (
+                                    <div className="text-danger small mt-2">
+                                        {phoneError}
+                                    </div>
+                                )}
+                            </div>
+
                             <button
                                 type="submit"
                                 className="btn btn-dark w-100 btn-lg"
-                                disabled={!selectedDate || !selectedTime}
+                            // disabled={!selectedDate || !selectedTime || !isPhoneValid}
                             >
                                 Потвърди
                             </button>
