@@ -5,7 +5,7 @@ import { registerLocale } from "react-datepicker";
 import bg from "date-fns/locale/bg";
 registerLocale("bg", bg);
 
-export default function Booking() {
+export default function Booking({ selectedService }) {
 
     const [selectedDate, setSelectedDate] = useState(null);
     const [times, setTimes] = useState([]);
@@ -63,12 +63,62 @@ export default function Booking() {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        setError("");
+        setPhoneError("");
+
+        if (!selectedService) {
+            setError("Моля, изберете услуга.");
+            return;
+        }
+
+        if (!selectedDate) {
+            setError("Моля, изберете дата.");
+            return;
+        }
+
+        if (!selectedTime) {
+            setError("Моля, изберете час.");
+            return;
+        }
 
         if (phone.length !== 10) {
             setPhoneError("Въведете валиден телефонен номер.");
             return;
+        }
+        try {
+            const token = localStorage.getItem("token");
+
+            const response = await fetch("http://localhost:3030/bookings/booking", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify({
+                    service: selectedService.name,
+                    date: selectedDate,
+                    time: selectedTime,
+                    phone,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || "Грешка при записването.");
+            }
+
+            alert("Резервацията е успешна!");
+
+            setSelectedDate(null);
+            setSelectedTime("");
+            setPhone("");
+            setTimes([]);
+        } catch (err) {
+            setError(err.message);
         }
 
         console.log("Date:", selectedDate);

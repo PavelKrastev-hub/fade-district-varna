@@ -1,9 +1,10 @@
-import { Link } from 'react-router'
 import ServiceSection from '../service-section/ServiceSection.jsx';
 import Booking from '../booking/Booking.jsx';
 import Catalog from '../catalog/Catalog.jsx';
+import { useState } from 'react';
 
 export default function Home() {
+    const [selectedService, setSelectedService] = useState(null);
     return (
         <>
             <section className="hero">
@@ -16,9 +17,13 @@ export default function Home() {
                 </div>
             </section>
 
-            <ServiceSection />
-
-            <Booking />
+            <ServiceSection
+                selectedService={selectedService}
+                setSelectedService={setSelectedService}
+            />
+            <Booking
+                selectedService={selectedService}
+            />
 
             <Catalog />
         </>

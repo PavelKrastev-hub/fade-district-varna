@@ -1,9 +1,4 @@
-import { useState } from "react";
-
-export default function ServiceSection() {
-
-    const [selectedService, setSelectedService] = useState(null);
-
+export default function ServiceSection({ selectedService, setSelectedService }) {
     const services = [
         {
             id: 'hair',
@@ -43,7 +38,7 @@ export default function ServiceSection() {
                             <div
                                 className={`card h-100 shadow-sm position-relative 
                                 ${selectedService === service.id ? "border-dark" : ""}`}
-                                onClick={() => setSelectedService(service.id)}
+                                onClick={() => setSelectedService(service)}
                                 style={{ cursor: "pointer" }}
                             >
 
@@ -62,9 +57,9 @@ export default function ServiceSection() {
 
                                     <button
                                         className={`btn mt-3 
-                                        ${selectedService === service.id ? "btn-dark" : "btn-outline-dark"}`}
+                                        ${selectedService?.id === service.id ? "btn-dark" : "btn-outline-dark"}`}
                                     >
-                                        {selectedService === service.id ? "Избрано ✔" : "Избери"}
+                                        {selectedService?.id === service.id ? "Избрано ✔" : "Избери"}
                                     </button>
 
                                 </div>

@@ -14,7 +14,7 @@ export const createBooking = async (req, res) => {
             phone,
         });
 
-        const formattedDate = new Date(booking.date).toLocaleDateString('bg-BG', {
+        const formattedDate = new Date(booking.date).toLocaleDateString('en-GB', {
             timeZone: 'Europe/Sofia'
         });
 
